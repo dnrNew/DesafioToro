@@ -1,6 +1,7 @@
 #Desafio Toro - US TORO-004
-CREATE DATABASE desafioToro;
-USE desafioToro;
+
+CREATE DATABASE desafioToroDb;
+USE desafioToroDb;
 
 CREATE TABLE User (
   Id INT NOT NULL AUTO_INCREMENT,
@@ -32,4 +33,23 @@ CREATE TABLE Asset (
   ON UPDATE NO ACTION) 
 ENGINE = INNODB;
 
+##Inserts
+#InsertUser
+INSERT INTO User (Name, Cpf, Account, Balance) VALUES
+('Shiryu de Dragão', '29247119081', '300123', 5000), 
+('Ikki de Fénix', '26598973015', '300124', 1000), 
+('Hyoga de Cisne', '87002973053', '300125', 2500); 
+
+#InsertStock
+INSERT INTO Stock (Symbol, CurrentPrice) VALUES 
+('GOLL4', 10.21), 
+('MGLU3', 4.46),
+('VALE3', 68.25),
+('PETR4', 30.78),
+('BBSE3', 29.47),
+('ITSA4', 9.28),
+('WEGE3', 30.48),
+('AERI3', 2.34),
+('OIBR3', 0.53),
+('ABEV3', 15.27);
 
