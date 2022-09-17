@@ -1,4 +1,4 @@
-﻿namespace DesafioToro.Domain.Entity
+﻿namespace DesafioToro.Domain.Asset
 {
     public class Asset
     {

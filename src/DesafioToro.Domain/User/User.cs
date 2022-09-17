@@ -1,4 +1,4 @@
-﻿namespace DesafioToro.Domain.Entity
+﻿namespace DesafioToro.Domain.User
 {
     public class User
     {
