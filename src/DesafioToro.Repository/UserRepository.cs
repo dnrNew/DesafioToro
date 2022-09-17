@@ -3,20 +3,10 @@ using MySqlConnector;
 
 namespace DesafioToro.Repository
 {
-    public class UserRepository : IUserRepository, IDisposable
+    public class UserRepository : BaseRepository, IUserRepository
     {
-        private MySqlConnection _connection;
-
-        public UserRepository(MySqlConnection connection)
+        public UserRepository(MySqlConnection connection) : base(connection)
         {
-            _connection = connection;
-            _connection.Open();
-        }
-
-        public void Dispose()
-        {
-            if (_connection.State == System.Data.ConnectionState.Open)
-                _connection.Close();
         }
 
         public async Task<User> GetUser(int userId)
