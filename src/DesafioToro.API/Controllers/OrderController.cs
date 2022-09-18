@@ -16,12 +16,25 @@ namespace DesafioToro.Api.Controllers
         }
 
         [HttpPost(Name = "ExecuteOrder")]
-        public async Task<IActionResult> ExecuteOrder()
+        public async Task<IActionResult> ExecuteOrder(OrderMinDto order)
         {
-            var success = await _orderAppService.ExecuteOrder(new OrderDto());
+            var headers = Request.Headers;
+            int userId = 1;
 
-            if (!success)
-                return BadRequest("Erro");
+            if (headers.ContainsKey("userId"))
+                int.Parse(headers["userId"].ToString());
+
+            var executeOrder = new OrderDto()
+            {
+                Symbol = order.Symbol,
+                Amount = order.Amount,
+                UserId = userId
+            };
+
+            var result = await _orderAppService.ExecuteOrder(executeOrder);
+
+            if (!result.Success)
+                return BadRequest(result.Message);
 
             return Ok();
         }

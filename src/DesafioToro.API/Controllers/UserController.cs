@@ -16,7 +16,7 @@ namespace DesafioToro.Api.Controllers
         }
 
         [HttpGet(Name = "GetUser")]
-        public async Task<UserDto> Get(int userId)
+        public async Task<UserDto> GetUser(int userId)
         {
             var user = await _userAppService.GetUser(userId);
 

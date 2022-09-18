@@ -17,6 +17,7 @@ builder.Services.AddTransient<IStockRepository, StockRepository>();
 
 builder.Services.AddTransient<IUserApplicationService, UserApplicationService>();
 builder.Services.AddTransient<IStockApplicationService, StockApplicationService>();
+builder.Services.AddTransient<IOrderApplicationService, OrderApplicationService>();
 
 var app = builder.Build();
 
