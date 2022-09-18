@@ -37,7 +37,7 @@ namespace DesafioToro.Domain.Users
                 });
             }
 
-            return (true, null);
+            return (true, "Ordem executada com sucesso");
         }
     }
 }

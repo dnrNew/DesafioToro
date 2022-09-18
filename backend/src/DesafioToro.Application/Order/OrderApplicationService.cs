@@ -23,15 +23,15 @@ namespace DesafioToro.Application.Services
             if (stock.Id <= 0)
                 return new ResultDto(false, "Ativo Inválido");
 
-            var (success, errorMessage) = user.ExecuteOrder(order.Amount, stock.Id, stock.CurrentPrice);
+            var (success, message) = user.ExecuteOrder(order.Amount, stock.Id, stock.CurrentPrice);
 
             if (!success) { 
-                return new ResultDto(success, errorMessage);
+                return new ResultDto(success, message);
             }
 
             await _userRepository.SaveUserExecutedOrder(user, stock.Id);
 
-            return new ResultDto(success, errorMessage);
+            return new ResultDto(success, message);
         }
     }
 }

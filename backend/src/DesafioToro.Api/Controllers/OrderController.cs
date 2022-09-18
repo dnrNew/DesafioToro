@@ -36,7 +36,7 @@ namespace DesafioToro.Api.Controllers
             if (!result.Success)
                 return BadRequest(result.Message);
 
-            return Ok();
+            return Ok(result.Message);
         }
     }
 }
