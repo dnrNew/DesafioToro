@@ -1,4 +1,5 @@
 ﻿using DesafioToro.Domain.Stocks;
+using DesafioToro.Domain.Users;
 using MySqlConnector;
 
 namespace DesafioToro.Repository
@@ -47,6 +48,28 @@ namespace DesafioToro.Repository
             }
 
             return stock;
+        }
+
+        //Criado para adicionar 10 no valor atual de todas as ações no refresh da tela, apenas para efeito de teste
+        public async Task UpdateCurrentPriceStocks()
+        {
+            MySqlTransaction transaction = null;
+
+            try
+            {
+                transaction = await _connection.BeginTransactionAsync();
+
+                MySqlCommand cmd = new MySqlCommand("UPDATE Stock SET CurrentPrice = CurrentPrice + 10;", _connection);
+                cmd.Transaction = transaction;
+                
+                await cmd.ExecuteNonQueryAsync();
+                await transaction.CommitAsync();
+            }
+            catch (MySqlException)
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
     }
 }

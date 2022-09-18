@@ -4,5 +4,6 @@
     {
         Task<List<Stock>> GetStocks();
         Task<Stock> GetStockBySymbol(string symbol);
+        Task UpdateCurrentPriceStocks();
     }
 }
