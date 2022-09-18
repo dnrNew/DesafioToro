@@ -1,6 +1,6 @@
 ﻿using DesafioToro.Application.Order.Dtos;
-using DesafioToro.Domain.Stock;
-using DesafioToro.Domain.User;
+using DesafioToro.Domain.Stocks;
+using DesafioToro.Domain.Users;
 
 namespace DesafioToro.Application.Services
 {

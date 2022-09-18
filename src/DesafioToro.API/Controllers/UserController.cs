@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DesafioToro.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("user/[action]")]
     public class UserController : ControllerBase
     {
         private IUserApplicationService _userAppService;
@@ -21,6 +21,14 @@ namespace DesafioToro.Api.Controllers
             var user = await _userAppService.GetUser(userId);
 
             return user;
+        }
+
+        [HttpGet(Name = "GetUserAssets")]
+        public async Task<List<UserAssetDto>> GetUserAssets(int userId)
+        {
+            var userAssets = await _userAppService.GetUserAssets(userId);
+
+            return userAssets;
         }
     }
 }

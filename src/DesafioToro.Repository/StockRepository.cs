@@ -1,4 +1,4 @@
-﻿using DesafioToro.Domain.Stock;
+﻿using DesafioToro.Domain.Stocks;
 using MySqlConnector;
 
 namespace DesafioToro.Repository

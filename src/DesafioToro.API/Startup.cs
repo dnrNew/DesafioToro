@@ -1,6 +1,6 @@
 using DesafioToro.Application.Services;
-using DesafioToro.Domain.Stock;
-using DesafioToro.Domain.User;
+using DesafioToro.Domain.Stocks;
+using DesafioToro.Domain.Users;
 using DesafioToro.Repository;
 using MySqlConnector;
 

@@ -19,7 +19,7 @@ namespace DesafioToro.Api.Controllers
         public async Task<IActionResult> ExecuteOrder(OrderMinDto order)
         {
             var headers = Request.Headers;
-            int userId = 1;
+            int userId = 0;
 
             if (headers.ContainsKey("userId"))
                 int.Parse(headers["userId"].ToString());

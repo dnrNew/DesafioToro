@@ -1,4 +1,6 @@
-﻿using DesafioToro.Domain.User;
+﻿using DesafioToro.Domain.Stocks;
+using DesafioToro.Domain.UserAssets;
+using DesafioToro.Domain.Users;
 using MySqlConnector;
 
 namespace DesafioToro.Repository
@@ -26,6 +28,32 @@ namespace DesafioToro.Repository
             }
 
             return user;
+        }
+
+        public async Task<List<UserAsset>> GetUserAssets(int userId)
+        {
+            var userAssets = new List<UserAsset>();
+
+            using var command = new MySqlCommand(
+                $"SELECT ua.Id, ua.Quantity, s.Symbol, s.CurrentPrice FROM UserAsset ua\r\n" +
+                $"JOIN Stock s ON s.Id = ua.StockId\r\n" +
+                $"WHERE ua.UserId = {userId};", _connection);
+
+            using var reader = await command.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                var userAsset = new UserAsset() { Stock = new Stock() };
+
+                userAsset.Id = reader.GetInt16(0);
+                userAsset.Quantity = reader.GetInt16(1);
+                userAsset.Stock.Symbol = reader.GetString(2);
+                userAsset.Stock.CurrentPrice = reader.GetDecimal(3);
+
+                userAssets.Add(userAsset);
+            }
+
+            return userAssets;
         }
 
         public async Task SaveUserExecutedOrder(User user, int stockId)

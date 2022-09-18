@@ -1,5 +1,5 @@
 ﻿using DesafioToro.Application.Dtos;
-using DesafioToro.Domain.User;
+using DesafioToro.Domain.Users;
 
 namespace DesafioToro.Application.Helpers
 {

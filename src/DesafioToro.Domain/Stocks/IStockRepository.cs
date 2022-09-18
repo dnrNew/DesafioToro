@@ -1,4 +1,4 @@
-﻿namespace DesafioToro.Domain.Stock
+﻿namespace DesafioToro.Domain.Stocks
 {
     public interface IStockRepository : IDisposable
     {

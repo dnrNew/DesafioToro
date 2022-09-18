@@ -1,6 +1,6 @@
 ﻿using DesafioToro.Application.Dtos;
 using DesafioToro.Application.Helpers;
-using DesafioToro.Domain.User;
+using DesafioToro.Domain.Users;
 
 namespace DesafioToro.Application.Services
 {
@@ -19,6 +19,14 @@ namespace DesafioToro.Application.Services
             var userDto = UserHelper.ToDto(user);
 
             return userDto;
+        }
+
+        public async Task<List<UserAssetDto>> GetUserAssets(int userId)
+        {
+            var userAsset = await _userRepository.GetUserAssets(userId);
+            var userAssetDto = userAsset.Select(s => UserAssetHelper.ToDto(s)).ToList();
+
+            return userAssetDto;
         }
     }
 }

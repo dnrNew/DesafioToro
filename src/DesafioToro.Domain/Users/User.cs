@@ -1,6 +1,6 @@
-﻿using DesafioToro.Domain.Asset;
+﻿using DesafioToro.Domain.UserAssets;
 
-namespace DesafioToro.Domain.User
+namespace DesafioToro.Domain.Users
 {
     public class User
     {

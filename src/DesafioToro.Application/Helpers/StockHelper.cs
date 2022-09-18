@@ -1,5 +1,5 @@
 ﻿using DesafioToro.Application.Dtos;
-using DesafioToro.Domain.Stock;
+using DesafioToro.Domain.Stocks;
 
 namespace DesafioToro.Application.Helpers
 {
