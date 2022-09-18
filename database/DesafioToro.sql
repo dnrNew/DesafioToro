@@ -1,5 +1,4 @@
 #Desafio Toro - US TORO-004
-
 CREATE DATABASE desafioToroDb;
 USE desafioToroDb;
 
@@ -19,7 +18,7 @@ CREATE TABLE Stock (
   PRIMARY KEY (Id))
 ENGINE = INNODB;
 
-CREATE TABLE Asset (
+CREATE TABLE UserAsset (
   Id INT NOT NULL AUTO_INCREMENT,
   Quantity INT NOT NULL, 
   UserId INT NOT NULL, 
@@ -52,4 +51,3 @@ INSERT INTO Stock (Symbol, CurrentPrice) VALUES
 ('AERI3', 2.34),
 ('OIBR3', 0.53),
 ('ABEV3', 15.27);
-

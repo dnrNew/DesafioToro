@@ -27,5 +27,49 @@ namespace DesafioToro.Repository
 
             return user;
         }
+
+        public async Task SaveUserExecutedOrder(User user, int stockId)
+        {
+            MySqlTransaction transaction = null;
+
+            try
+            {
+                transaction = await _connection.BeginTransactionAsync();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = _connection;
+                cmd.Transaction = transaction;
+
+                var asset = user.UserAssets.Find(w => w.StockId == stockId);
+
+                if (asset.Id == 0)
+                {
+                    cmd.CommandText = "INSERT INTO UserAsset (Quantity, UserId, StockId) VALUES (@quantity, @userId, @stockId)";
+                    cmd.Parameters.AddWithValue("@quantity", asset.Quantity);
+                    cmd.Parameters.AddWithValue("@userId", user.Id);
+                    cmd.Parameters.AddWithValue("@stockId", asset.StockId);
+                }
+                else
+                {
+                    cmd.CommandText = "UPDATE UserAsset SET Quantity = @quantity WHERE Id = @assetId";
+                    cmd.Parameters.AddWithValue("@quantity", asset.Quantity);
+                    cmd.Parameters.AddWithValue("@assetId", asset.Id);
+                }
+
+                await cmd.ExecuteNonQueryAsync();
+
+                cmd.CommandText = "UPDATE User SET Balance = @balance WHERE Id = @id";
+                cmd.Parameters.AddWithValue("@balance", user.Balance);
+                cmd.Parameters.AddWithValue("@Id", user.Id);
+
+                await cmd.ExecuteNonQueryAsync();
+                await transaction.CommitAsync();
+            }
+            catch (MySqlException)
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
+        }
     }
 }
