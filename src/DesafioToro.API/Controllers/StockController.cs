@@ -1,37 +1,26 @@
-using DesafioToro.Repository;
+using DesafioToro.Application.Dtos;
+using DesafioToro.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DesafioToro.API.Controllers
+namespace DesafioToro.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("trends")]
     public class StockController : ControllerBase
     {
-        private static readonly string[] Stocks = new[]
-        {
-            "GOLL4", "MGLU3", "BIDI4", "PETR4", "BBSE3", "ITSA4", "WEGE3", "AERI3", "OIBR3", "ABEV3"
-        };
+        private IStockApplicationService _stockAppService;
 
-        private StockRepository _stockRepo;
-
-        public StockController(StockRepository stockRepo)
+        public StockController(IStockApplicationService stockAppService)
         {
-            _stockRepo = stockRepo;
+            _stockAppService = stockAppService;
         }
 
-        [HttpGet(Name = "GetStock")]
-        public async Task<IEnumerable<Stock>> Get()
+        [HttpGet(Name = "GetStocks")]
+        public async Task<List<StockDto>> GetStocks()
         {
+            var stocks = await _stockAppService.GetStocks();
 
-            await _stockRepo.GetStock();
-
-            return Enumerable.Range(1, 5).Select(index => new Stock
-            {
-                Code = Stocks[Random.Shared.Next(Stocks.Length)]
-            })
-            .ToArray();
+            return stocks;
         }
-
-        
     }
 }

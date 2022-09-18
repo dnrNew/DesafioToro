@@ -3,13 +3,13 @@ using MySqlConnector;
 
 namespace DesafioToro.Repository
 {
-    public class StockRepository : BaseRepository
+    public class StockRepository : BaseRepository, IStockRepository
     {
         public StockRepository(MySqlConnection connection) : base(connection)
         {
         }
 
-        public async Task<List<Stock>> GetStock()
+        public async Task<List<Stock>> GetStocks()
         {
             var stocks = new List<Stock>();
 

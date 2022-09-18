@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "DesafioToro.API": {
+    "DesafioToro.Api": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

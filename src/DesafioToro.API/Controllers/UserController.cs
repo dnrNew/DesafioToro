@@ -2,7 +2,7 @@ using DesafioToro.Application.Dtos;
 using DesafioToro.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DesafioToro.API.Controllers
+namespace DesafioToro.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
