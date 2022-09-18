@@ -21,12 +21,12 @@ namespace DesafioToro.Application.Services
             return userDto;
         }
 
-        public async Task<List<UserAssetDto>> GetUserAssets(int userId)
+        public async Task<List<UserDto>> GetAllUsers()
         {
-            var userAsset = await _userRepository.GetUserAssets(userId);
-            var userAssetDto = userAsset.Select(s => UserAssetHelper.ToDto(s)).ToList();
+            var users = await _userRepository.GetAllUsers();
+            var usersDto = users.Select(s => UserHelper.ToDto(s)).ToList();
 
-            return userAssetDto;
+            return usersDto;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace DesafioToro.Domain.Users
     public interface IUserRepository : IDisposable
     {
         Task<User> GetUser(int userId);
-        Task<List<UserAsset>> GetUserAssets(int userId);
+        Task<List<User>> GetAllUsers();
         Task SaveUserExecutedOrder(User user, int stockId);
     }
 }

@@ -6,5 +6,6 @@
         public string Cpf { get; set; }
         public string Account { get; set; }
         public decimal Balance { get; set; }
+        public List<UserAssetDto> UserAssets { get; set; } = new List<UserAssetDto>();
     }
 }

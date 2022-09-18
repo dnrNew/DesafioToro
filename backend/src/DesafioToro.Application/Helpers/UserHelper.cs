@@ -12,7 +12,8 @@ namespace DesafioToro.Application.Helpers
                 Name = user.Name,
                 Cpf = user.Cpf,
                 Account = user.Account,
-                Balance = user.Balance
+                Balance = user.Balance,
+                UserAssets = user.UserAssets.Select(s => UserAssetHelper.ToDto(s)).ToList()
             };
         }
     }

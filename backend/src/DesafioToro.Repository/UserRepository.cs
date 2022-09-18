@@ -15,45 +15,57 @@ namespace DesafioToro.Repository
         {
             var user = new User();
 
-            using var command = new MySqlCommand($"SELECT * FROM User WHERE Id = {userId};", _connection);
+            using var command = new MySqlCommand($@"SELECT u.Id, u.Name, u.Cpf, u.Account, u.Balance, ua.Quantity, s.Symbol 
+                                                    FROM User u 
+                                                    JOIN UserAsset ua ON ua.UserId = u.Id
+                                                    JOIN Stock s ON s.Id = ua.StockId 
+                                                    WHERE u.Id = {userId};", _connection);
+
             using var reader = await command.ExecuteReaderAsync();
 
             while (await reader.ReadAsync())
             {
-                user.Id = reader.GetInt16(0);
-                user.Name = reader.GetString(1);
-                user.Cpf = reader.GetString(2);
-                user.Account = reader.GetString(3);
-                user.Balance = reader.GetDecimal(4);
+                if (user.Id == 0)
+                {
+                    user.Id = reader.GetInt16(0);
+                    user.Name = reader.GetString(1);
+                    user.Cpf = reader.GetString(2);
+                    user.Account = reader.GetString(3);
+                    user.Balance = reader.GetDecimal(4);
+                }
+
+                user.UserAssets.Add(
+                    new UserAsset()
+                    {
+                        Quantity = reader.GetInt16(5),
+                        Stock = new Stock() { Symbol = reader.GetString(6) }
+                    });
             }
 
             return user;
         }
 
-        public async Task<List<UserAsset>> GetUserAssets(int userId)
+        public async Task<List<User>> GetAllUsers()
         {
-            var userAssets = new List<UserAsset>();
+            var users = new List<User>();
 
-            using var command = new MySqlCommand(
-                $"SELECT ua.Id, ua.Quantity, s.Symbol, s.CurrentPrice FROM UserAsset ua\r\n" +
-                $"JOIN Stock s ON s.Id = ua.StockId\r\n" +
-                $"WHERE ua.UserId = {userId};", _connection);
-
+            using var command = new MySqlCommand($"SELECT Id, Name, Cpf, Account, Balance FROM User;", _connection);
             using var reader = await command.ExecuteReaderAsync();
 
             while (await reader.ReadAsync())
             {
-                var userAsset = new UserAsset() { Stock = new Stock() };
+                var user = new User();
 
-                userAsset.Id = reader.GetInt16(0);
-                userAsset.Quantity = reader.GetInt16(1);
-                userAsset.Stock.Symbol = reader.GetString(2);
-                userAsset.Stock.CurrentPrice = reader.GetDecimal(3);
+                user.Id = reader.GetInt16(0);
+                user.Name = reader.GetString(1);
+                user.Cpf = reader.GetString(2);
+                user.Account = reader.GetString(3);
+                user.Balance = reader.GetDecimal(4);
 
-                userAssets.Add(userAsset);
+                users.Add(user);
             }
 
-            return userAssets;
+            return users;
         }
 
         public async Task SaveUserExecutedOrder(User user, int stockId)

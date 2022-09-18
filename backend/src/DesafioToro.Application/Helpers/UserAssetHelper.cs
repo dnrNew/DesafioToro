@@ -9,10 +9,8 @@ namespace DesafioToro.Application.Helpers
         {
             return new UserAssetDto
             {
-                Id = userAsset.Id,
                 Quantity = userAsset.Quantity,
                 Symbol = userAsset.Stock.Symbol,
-                CurrentPrice = userAsset.Stock.CurrentPrice
             };
         }
     }
