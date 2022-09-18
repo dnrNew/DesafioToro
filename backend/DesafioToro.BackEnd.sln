@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioToro.Api", "DesafioToro.API\DesafioToro.Api.csproj", "{4244FD8F-9577-45DE-97EA-46723B343B59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioToro.Api", "src\DesafioToro.API\DesafioToro.Api.csproj", "{4244FD8F-9577-45DE-97EA-46723B343B59}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioToro.Domain", "DesafioToro.Domain\DesafioToro.Domain.csproj", "{9187DFD0-4557-4ABF-AEB4-3AFC94EAC41B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioToro.Domain", "src\DesafioToro.Domain\DesafioToro.Domain.csproj", "{9187DFD0-4557-4ABF-AEB4-3AFC94EAC41B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioToro.Repository", "DesafioToro.Repository\DesafioToro.Repository.csproj", "{6DB5B43E-79C5-4943-B001-AC030A3E7E43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioToro.Repository", "src\DesafioToro.Repository\DesafioToro.Repository.csproj", "{6DB5B43E-79C5-4943-B001-AC030A3E7E43}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioToro.Application", "DesafioToro.Application\DesafioToro.Application.csproj", "{9B37EB9F-019D-404B-AAE5-542B06DC2AF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioToro.Application", "src\DesafioToro.Application\DesafioToro.Application.csproj", "{9B37EB9F-019D-404B-AAE5-542B06DC2AF7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0B7D9BFA-2F62-4B79-9CFF-4EC132DBBE32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4244FD8F-9577-45DE-97EA-46723B343B59} = {0B7D9BFA-2F62-4B79-9CFF-4EC132DBBE32}
+		{9187DFD0-4557-4ABF-AEB4-3AFC94EAC41B} = {0B7D9BFA-2F62-4B79-9CFF-4EC132DBBE32}
+		{6DB5B43E-79C5-4943-B001-AC030A3E7E43} = {0B7D9BFA-2F62-4B79-9CFF-4EC132DBBE32}
+		{9B37EB9F-019D-404B-AAE5-542B06DC2AF7} = {0B7D9BFA-2F62-4B79-9CFF-4EC132DBBE32}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3DFEA19-C42E-4BA9-BDAD-764D7435B51B}
