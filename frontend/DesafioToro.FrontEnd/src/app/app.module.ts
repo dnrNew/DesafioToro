@@ -7,18 +7,20 @@ import { TrendsComponent } from './trends/trends.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './user/users/users.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UserDetailComponent,
-    TrendsComponent
+    TrendsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

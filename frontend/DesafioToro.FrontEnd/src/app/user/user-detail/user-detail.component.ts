@@ -13,6 +13,7 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUser(1).subscribe((user) => {
+      console.log(user);
     })
   }
 

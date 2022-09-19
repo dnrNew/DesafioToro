@@ -1,9 +1,21 @@
-<div class="content" role="main">
-<h2>Usuários</h2>
-
-<div class="card">
-    <div><strong>Nome</strong></div>
-    <div>Shyriu</div>
+<div class="text-center pt-10">
+    <h2>Usuários</h2>
 </div>
-
+<div class="card-container">
+    <div class="card cursor-click" *ngFor="let user of users; let  i = index;" (click)="showUserDetails(user.id)">
+        <img class="pt-10" *ngIf="user.id == 1" src="assets\images\Shiryu.jpg">
+        <img class="pt-10" *ngIf="user.id == 2" src="assets\images\Ikki.jpg">
+        <img class="pt-10" *ngIf="user.id == 3" src="assets\images\Hyoga.jpg">
+        <div>
+            <h4><b>{{user.name}}</b></h4>
+            <div class="card-row">
+                <div class="card-row-item"><b>CPF:</b> </div>
+                <div class="card-row-item">{{user.cpf | mask: '000.000.000-99'}}</div>
+            </div>
+            <div class="card-row">
+                <div class="card-row-item"><b>Conta:</b> </div>
+                <div class="card-row-item">{{user.account | mask: '00000-9'}}</div>
+            </div>
+        </div>
+    </div>
 </div>
