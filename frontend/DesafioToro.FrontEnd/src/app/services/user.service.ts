@@ -15,8 +15,16 @@ export class UserService {
   public getUser(userId: number): Observable<any> {
     return this.http.get<any>(`${this.environment.api_url}/user/${userId}`)
       .pipe(
+        tap((user) => user),
+        catchError(this.handleError<any>('Erro ao buscar detalhes do Usuário'))
+      )
+  }
+
+  public getAllUsers(): Observable<any> {
+    return this.http.get<any>(`${this.environment.api_url}/user`)
+      .pipe(
         tap((users) => users),
-        catchError(this.handleError<any>('Erro ao buscar usuário'))
+        catchError(this.handleError<any>('Erro ao buscar lista de Usuários'))
       )
   }
 
