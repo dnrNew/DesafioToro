@@ -19,6 +19,17 @@ builder.Services.AddTransient<IUserApplicationService, UserApplicationService>()
 builder.Services.AddTransient<IStockApplicationService, StockApplicationService>();
 builder.Services.AddTransient<IOrderApplicationService, OrderApplicationService>();
 
+var desafioToroOrigins = "DesafioToroOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: desafioToroOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("http://localhost:4200");
+                      });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -27,6 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(desafioToroOrigins);
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
