@@ -9,6 +9,7 @@ namespace DesafioToro.Application.Helpers
         {
             return new UserDto
             {
+                Id = user.Id,
                 Name = user.Name,
                 Cpf = user.Cpf,
                 Account = user.Account,
