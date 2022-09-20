@@ -1,0 +1,90 @@
+.content {
+    margin: 82px auto 32px;
+    max-width: 960px;
+    align-items: center;
+}
+
+.card {
+    min-width: 200px;
+    padding: 10px;
+    margin-left: 16px;
+    margin-right: 16px;
+    text-align: center;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 20px #BCBCCB47;
+    border-radius: 8px;
+    border: 1px solid rgb(215 209 209);
+    opacity: 1;
+}
+
+.card-stock {
+    min-width: 150px;
+    max-height: 150px;
+    padding: 10px;
+    margin-left: 16px;
+    margin-right: 16px;
+    text-align: center;
+    background-color: #6c7ae0;
+    color: #ffffff;
+    box-shadow: 0px 3px 20px #BCBCCB47;
+    border-radius: 8px;
+    border: 1px solid rgb(215 209 209);
+    opacity: 1;
+}
+
+.card-stock:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-stock-title {
+    font-size: 24px;
+    font-weight: 700;
+    padding-bottom: 2px;
+}
+
+.card-stock-price {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+}
+
+.card-container-order {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-row {
+    display: flex;
+}
+
+.card-row-center {
+    justify-content: center;
+}
+
+.card-row-item {
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
+.order-content {
+    align-items: center;
+    display: flex;
+}
+
+.order-title {
+    text-align: initial;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: Roboto;
+}
+
+img {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
