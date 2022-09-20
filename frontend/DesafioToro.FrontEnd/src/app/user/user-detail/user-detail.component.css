@@ -82,9 +82,21 @@
     font-family: Roboto;
 }
 
+.order-title-empty {
+    min-width: 300px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Roboto;
+}
+
 img {
     object-fit: cover;
     border-radius: 50%;
     width: 150px;
     height: 150px;
+}
+
+.card-icon-empty {
+    font-size: 75px;
+    color: #c5c2c7;
 }

@@ -7,6 +7,12 @@ import { Order } from '../dtos/order';
 import { Stock } from '../dtos/stock';
 import { User } from '../dtos/user';
 
+
+import { registerLocaleData } from '@angular/common';
+import localeIt from '@angular/common/locales/it'
+import { ToastrService } from 'ngx-toastr';
+registerLocaleData(localeIt, 'it');
+
 @Component({
   selector: 'app-user',
   templateUrl: './user-detail.component.html',
@@ -14,16 +20,18 @@ import { User } from '../dtos/user';
 })
 export class UserDetailComponent implements OnInit {
   user = new User();
-  order = new Order();
+  order = new Order();  
   stocks: Stock[] = [];
   selectStock = new Stock();
   userId = 0;
+  userAssets = [];
 
   constructor(
     private userService: UserService,
     private orderService: OrderService,
     private trendsService: TrendsService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -38,6 +46,7 @@ export class UserDetailComponent implements OnInit {
   getUser(userId: number) {
     this.userService.getUser(userId).subscribe((user) => {
       this.user = user;
+      this.userAssets = user.userAssets;
     });
   }
 
@@ -47,11 +56,14 @@ export class UserDetailComponent implements OnInit {
   }
 
   executeOrder(order: Order) {
-    this.orderService.executeOrder(order, this.userId).subscribe((response) => {
+    this.orderService.executeOrder(order, this.userId).subscribe(
+      (response) => {
+        if (!response)
+          return;
 
-      console.log(response);
-      
-      this.getUser(this.userId);
-    });
-  }
+        this.toastr.success(response);
+        this.getUser(this.userId);
+      },
+    )
+  }  
 }

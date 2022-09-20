@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { Order } from '../user/dtos/order';
 
@@ -10,7 +11,8 @@ export class OrderService {
   private environment = { api_url: `https://localhost:7109` }
 
   constructor(
-    private http: HttpClient) {
+    private http: HttpClient,
+    private toastr: ToastrService) {
   }
 
   public executeOrder(order: Order, userId: number): Observable<any> {
@@ -18,7 +20,7 @@ export class OrderService {
       headers: new HttpHeaders({
         'userId': userId.toString(),
         'Content-Type': 'application/json'
-      }),      
+      }),
       responseType: 'text' as 'json'
     };
 
@@ -31,7 +33,12 @@ export class OrderService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(`${operation} Error: ${error.message}`);
+
+      if (error.status == 400 && error.error == "Saldo Insuficiente")
+        this.toastr.error(error.error);
+      else
+        console.error(`${operation} Error: ${error.message}`);
+
       return of(result as T);
     };
   }

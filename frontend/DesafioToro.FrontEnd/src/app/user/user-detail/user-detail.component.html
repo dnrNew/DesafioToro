@@ -6,7 +6,7 @@
                 <img class="pt-10" *ngIf="user.id == 2" src="assets\images\Ikki.jpg">
                 <img class="pt-10" *ngIf="user.id == 3" src="assets\images\Hyoga.jpg">
                 <div>
-                    <h4><b>{{user.name}}</b></h4>
+                    <h3><b>{{user.name}}</b></h3>
                     <div class="card-row">
                         <div class="card-row-item"><b>CPF:</b> </div>
                         <div class="card-row-item">{{user.cpf | mask: '000.000.000-99'}}</div>
@@ -17,9 +17,10 @@
                     </div>
                     <div class="card-row">
                         <div class="card-row-item"><b>Saldo:</b> </div>
-                        <div class="card-row-item">{{user.balance | currency:'BRL':true:'1.2-2'}}</div>
+                        <div class="card-row-item">{{user.balance | currency}}</div>
                     </div>
-                    <div class="table-wrapper mt-15">
+
+                    <div class="table-wrapper mt-15" *ngIf="userAssets.length > 0">
                         <table>
                             <tr>
                                 <th>
@@ -47,9 +48,8 @@
 
         <div class="card">
             <div class="text-center">
-                <h2 class="mt-5">Ações Mais Negociadas</h2>
+                <h2 class="mt-5">Ações mais negociadas</h2>
             </div>
-
             <div class="card-container-order">
                 <div>
                     <div *ngFor="let stock of stocks" (click)="showSelectStock(stock)">
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="card-stock-price">
                                     <div>
-                                        {{stock.currentPrice}}
+                                        {{stock.currentPrice | currency}}
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +69,14 @@
                 </div>
 
                 <div class="order-content">
-                    <div *ngIf="selectStock.id == undefined">Selecione uma Ação para Comprar</div>
+                    <div class="text-center pt-10" *ngIf="!selectStock.id">
+                        <div class="card pb-0">
+                            <div class="order-title-empty">Selecione uma Ação</div>
+                            <div>
+                                <span><i class="material-icons card-icon-empty">trending_up</i></span>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="text-center pt-10" *ngIf="selectStock.id > 0">
                         <div class="card">
