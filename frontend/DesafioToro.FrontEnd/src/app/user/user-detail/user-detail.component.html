@@ -52,14 +52,16 @@
 
             <div class="card-container-order">
                 <div>
-                    <div class="text-center pt-10 pb-10">
-                        <div class="card-stock cursor-click">
-                            <div class="card-stock-title">
-                                MGLU3
-                            </div>
-                            <div class="card-stock-price">
-                                <div>
-                                    R$4,56
+                    <div *ngFor="let stock of stocks" (click)="showSelectStock(stock)">
+                        <div class="text-center pt-10 pb-10">
+                            <div class="card-stock cursor-click">
+                                <div class="card-stock-title">
+                                    {{stock.symbol}}
+                                </div>
+                                <div class="card-stock-price">
+                                    <div>
+                                        {{stock.currentPrice}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -67,20 +69,21 @@
                 </div>
 
                 <div class="order-content">
-                    <div class="text-center pt-10">
+                    <div *ngIf="selectStock.id == undefined">Selecione uma Ação para Comprar</div>
+
+                    <div class="text-center pt-10" *ngIf="selectStock.id > 0">
                         <div class="card">
                             <div class="order-title">
-                                AÇÃO - MGLU3
+                                AÇÃO - {{selectStock.symbol}}
                             </div>
                             <div class="group">
-                                <input type="number">
+                                <input type="number" [(ngModel)]="order.amount">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Quantidade</label>
                             </div>
-
                             <div>
-                                <button type="button" class="cursor-click">COMPRAR</button>
+                                <button type="button" class="cursor-click" (click)="executeOrder(order)">COMPRAR</button>
                             </div>
                         </div>
                     </div>

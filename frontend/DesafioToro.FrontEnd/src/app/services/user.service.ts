@@ -18,7 +18,7 @@ export class UserService {
       .pipe(
         tap((user) => user),
         catchError(this.handleError<any>('Erro ao buscar detalhes do Usuário'))
-      )
+      );
   }
 
   public getAllUsers(): Observable<any> {
@@ -26,7 +26,7 @@ export class UserService {
       .pipe(
         tap((users) => users),
         catchError(this.handleError<any>('Erro ao buscar lista de Usuários'))
-      )
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
