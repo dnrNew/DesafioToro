@@ -22,7 +22,7 @@ namespace DesafioToro.Api.Controllers
             int userId = 0;
 
             if (headers.ContainsKey("userId"))
-                int.Parse(headers["userId"].ToString());
+                userId = int.Parse(headers["userId"]);
 
             var executeOrder = new OrderDto()
             {

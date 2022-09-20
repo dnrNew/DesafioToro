@@ -8,6 +8,6 @@ namespace DesafioToro.Domain.UserAssets
         public int Quantity { get; set; }
         public int UserId { get; set; }
         public int StockId { get; set; }
-        public Stock Stock { get; set; }
+        public Stock Stock { get; set; } = new Stock();
     }
 }

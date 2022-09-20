@@ -15,7 +15,7 @@ namespace DesafioToro.Repository
         {
             var user = new User();
 
-            using var command = new MySqlCommand($@"SELECT u.Id, u.Name, u.Cpf, u.Account, u.Balance, ua.Quantity, s.Symbol 
+            using var command = new MySqlCommand($@"SELECT u.Id, u.Name, u.Cpf, u.Account, u.Balance, ua.Id, ua.Quantity, s.Id, s.Symbol 
                                                     FROM User u 
                                                     JOIN UserAsset ua ON ua.UserId = u.Id
                                                     JOIN Stock s ON s.Id = ua.StockId 
@@ -37,8 +37,13 @@ namespace DesafioToro.Repository
                 user.UserAssets.Add(
                     new UserAsset()
                     {
-                        Quantity = reader.GetInt16(5),
-                        Stock = new Stock() { Symbol = reader.GetString(6) }
+                        Id = reader.GetInt16(5),
+                        Quantity = reader.GetInt16(6),
+                        StockId = reader.GetInt16(7),
+                        Stock = new Stock() { 
+                            Id = reader.GetInt16(7),
+                            Symbol = reader.GetString(8) 
+                        }
                     });
             }
 
