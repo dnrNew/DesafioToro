@@ -17,8 +17,8 @@ namespace DesafioToro.Repository
 
             using var command = new MySqlCommand($@"SELECT u.Id, u.Name, u.Cpf, u.Account, u.Balance, ua.Id, ua.Quantity, s.Id, s.Symbol 
                                                     FROM User u 
-                                                    JOIN UserAsset ua ON ua.UserId = u.Id
-                                                    JOIN Stock s ON s.Id = ua.StockId 
+                                                    LEFT JOIN UserAsset ua ON ua.UserId = u.Id
+                                                    LEFT JOIN Stock s ON s.Id = ua.StockId 
                                                     WHERE u.Id = {userId};", _connection);
 
             using var reader = await command.ExecuteReaderAsync();
@@ -34,17 +34,23 @@ namespace DesafioToro.Repository
                     user.Balance = reader.GetDecimal(4);
                 }
 
-                user.UserAssets.Add(
-                    new UserAsset()
-                    {
-                        Id = reader.GetInt16(5),
-                        Quantity = reader.GetInt16(6),
-                        StockId = reader.GetInt16(7),
-                        Stock = new Stock() { 
-                            Id = reader.GetInt16(7),
-                            Symbol = reader.GetString(8) 
-                        }
-                    });
+                var userAssetId = reader.GetValue(5).ToString();
+
+                if (userAssetId.Length > 0)
+                {
+                    user.UserAssets.Add(
+                        new UserAsset()
+                        {
+                            Id = reader.GetInt16(5),
+                            Quantity = reader.GetInt16(6),
+                            StockId = reader.GetInt16(7),
+                            Stock = new Stock()
+                            {
+                                Id = reader.GetInt16(7),
+                                Symbol = reader.GetString(8)
+                            }
+                        });
+                }
             }
 
             return user;

@@ -1,5 +1,4 @@
 ﻿using DesafioToro.Domain.Stocks;
-using DesafioToro.Domain.Users;
 using MySqlConnector;
 
 namespace DesafioToro.Repository
@@ -61,7 +60,7 @@ namespace DesafioToro.Repository
 
                 MySqlCommand cmd = new MySqlCommand("UPDATE Stock SET CurrentPrice = CurrentPrice + 10;", _connection);
                 cmd.Transaction = transaction;
-                
+
                 await cmd.ExecuteNonQueryAsync();
                 await transaction.CommitAsync();
             }
