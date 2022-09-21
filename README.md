@@ -12,8 +12,8 @@ O projeto simula uma lista de usuários em que cada usuário pode ter uma lista 
 * [Desafio Toro Full-Stack](#desafio-toro-full-stack)
 * [Índice](#índice)
 * [Começando](#-começando)
-* [Acesso ao Projeto](#acesso-ao-projeto)
-* [Tecnologias utilizadas](#tecnologias-utilizadas)
+* [Como executar o Projeto](#-como-executar-o-projeto)
+* [Executando os testes](#-executando-os-testes)
 * [Pessoas Contribuidoras](#pessoas-contribuidoras)
 * [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
 * [Licença](#licença)
@@ -39,27 +39,32 @@ Abrir um terminal e digitar os seguinte comandos:
 npm install -g @angular/cli  
 ```
 
-### 🔧 Instalação
+### 🔧 Como executar o Projeto
 
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
-
-Diga como essa etapa será:
+Para inicializar todos os serviços de uma vez basta utilizar o docker-compose com o comando:
 
 ```
-Dar exemplos
+docker-compose up
 ```
 
-E repita:
+Para rodar apenas o serviço de Frontend utilize o comando:
 
 ```
-Até finalizar
+ng serve
 ```
 
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
+Para rodar apenas o serviço de Backend utilize os comandos:
+
+```
+dotnet restore 
+dotnet run
+```
 
 ## ⚙️ Executando os testes
 
-Explicar como executar os testes automatizados para este sistema.
+```
+dotnet test 
+```
 
 ### 🔩 Analise os testes de ponta a ponta
 
