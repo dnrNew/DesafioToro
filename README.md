@@ -8,20 +8,20 @@ Projeto criado para desenvolver a User Story `TORO-004` do Desafio Toro Desenvol
 
 O projeto simula uma lista de usuários em que cada usuário pode ter uma lista de ativos na bolsa de valores. Um usuário pode visualizar sua lista de ativos e executar uma ordem para comprar uma quantidade de ações, de acordo com uma lista aleatória de 5 ações mais negociadas no dia. Após a compra das ações o saldo e a lista de ativos do usuário é atualizado.
 
-A arquitetura do Projeto foi baseada em camadas com o Domínio, regras de negócio desacoplados e API RESTFull.
+A arquitetura do projeto foi baseada em camadas com o Domínio, regras de negócio desacoplados e API RESTFull.
 
 # Índice
 * [Começando](#-começando)
-* [Como executar o Projeto](#%EF%B8%8F-como-executar-o-projeto)
+* [Como executar o projeto](#%EF%B8%8F-como-executar-o-projeto)
 * [Executando os testes](#%EF%B8%8F-executando-os-testes)
 
 ## 🚀 Começando
 
-Clonar o repositório do Projeto 
+Clonar o repositório do projeto 
 ```
 git clone https://github.com/dnrNew/DesafioToro.git
 ```
-Instalar as dependências do Projeto:
+Instalar as dependências do projeto:
 
 - .NET Core 6 - https://dotnet.microsoft.com/en-us/download/dotnet/6.0
 - Node.js versão v16.17.0 - https://nodejs.org/en/download/
@@ -35,21 +35,21 @@ Abrir um terminal e digitar os seguinte comandos:
 npm install -g @angular/cli  
 ```
 
-### 🛠️ Como executar o Projeto
+### 🛠️ Como executar o projeto
 
-Para inicializar todos os serviços de uma vez basta utilizar o docker-compose com o comando:
+Para inicializar todos os serviços de uma vez basta utilizar o docker-compose, de dentro da pasta raiz do projeto, com o comando:
 
 ```
 docker-compose up
 ```
 
-Para rodar apenas o serviço de Frontend utilize o comando:
+Para rodar apenas o serviço de Frontend, acesse a pasta **frontend**, com o comando:
 
 ```
 ng serve
 ```
 
-Para rodar apenas o serviço de Backend utilize os comandos:
+Para rodar apenas o serviço de Backend, acesse a pasta **backend**, com os comandos:
 
 ```
 dotnet restore 
