@@ -14,7 +14,9 @@ services:
     expose:
       - '3307'
     volumes:
-      - /home/volumes/MySql:/var/lib/mysql
+      - ./mycustom.cnf:/etc/mysql/conf.d/custom.cnf
+      - ./database:/docker-entrypoint-initdb.d
+      - mysql_data:/var/lib/mysql
     networks:
       - mysql-compose-network 
 
@@ -41,3 +43,5 @@ services:
 networks: 
    mysql-compose-network:
       driver: bridge
+volumes:
+   mysql_data:      
