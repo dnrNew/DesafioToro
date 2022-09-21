@@ -21,14 +21,14 @@
     min-width: 150px;
     max-height: 150px;
     padding: 10px;
+    border-top: solid 4px #7203FF;
     margin-left: 16px;
     margin-right: 16px;
     text-align: center;
-    background-color: #6c7ae0;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: black;
     box-shadow: 0px 3px 20px #BCBCCB47;
-    border-radius: 8px;
-    border: 1px solid rgb(215 209 209);
+    border-radius: 2px 2px 5px 5px;
     opacity: 1;
 }
 
@@ -45,6 +45,7 @@
 .card-stock-price {
     font-size: 18px;
     font-weight: 500;
+    color: #7203FF;
 }
 
 .card-container {
@@ -55,6 +56,9 @@
 .card-container-order {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 700px;
 }
 
 .card-row {
@@ -73,6 +77,21 @@
 .order-content {
     align-items: center;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #330066;
+}
+
+.order-content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 45%;
+    text-align: left;
+    margin-bottom: 25px;
+    margin-top: 25px;
 }
 
 .order-title {
@@ -84,9 +103,10 @@
 
 .order-title-empty {
     min-width: 300px;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     font-family: Roboto;
+    color: #330066;
 }
 
 img {
@@ -99,4 +119,37 @@ img {
 .card-icon-empty {
     font-size: 75px;
     color: #c5c2c7;
+}
+
+.card-icon-medium {
+    font-size: 32px;
+    color: #330066;
+    vertical-align: bottom;
+    padding-right: 5px;
+    display: inline-block;
+}
+
+.trends-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #330066;
+}
+
+.trends-align-left {
+    text-align: left;
+    margin-left: 15px;
+}
+
+.card-separator {
+    width: 95%;
+    border: solid 1px;
+    color: #330066;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.stock-color {
+    color: #A78BF9;
 }

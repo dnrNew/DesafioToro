@@ -47,52 +47,65 @@
     <div>
 
         <div class="card">
-            <div class="text-center">
-                <h2 class="mt-5">Ações mais negociadas</h2>
+            <div class="trends-align-left">
+                <span><i class="material-icons card-icon-medium">trending_up</i>
+                    <span class="trends-title">Ações mais negociadas</span>
+                </span>
             </div>
+            <hr class="card-separator mb-15">
+
             <div class="card-container-order">
-                <div>
-                    <div *ngFor="let stock of stocks" (click)="showSelectStock(stock)">
-                        <div class="text-center pt-10 pb-10">
-                            <div class="card-stock cursor-click">
-                                <div class="card-stock-title">
-                                    {{stock.symbol}}
-                                </div>
-                                <div class="card-stock-price">
-                                    <div>
-                                        {{stock.currentPrice | currency}}
-                                    </div>
+                <div *ngFor="let stock of stocks" (click)="showSelectStock(stock)">
+                    <div class="text-center pt-10 pb-10">
+                        <div class="card-stock cursor-click">
+                            <div class="card-stock-title">
+                                {{stock.symbol}}
+                            </div>
+                            <div class="card-stock-price">
+                                <div>
+                                    {{stock.currentPrice | currency}}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="order-content">
-                    <div class="text-center pt-10" *ngIf="!selectStock.id">
-                        <div class="card pb-0">
-                            <div class="order-title-empty">Selecione uma Ação</div>
-                            <div>
-                                <span><i class="material-icons card-icon-empty">trending_up</i></span>
-                            </div>
-                        </div>
+            <div class="trends-align-left mt-15">
+                <span><i class="material-icons card-icon-medium">attach_money</i>
+                        <span class="trends-title">Comprar Ação</span>
+                </span>
+            </div>
+            <hr class="card-separator mt-10">
+
+            <div class="text-center pt-10" *ngIf="!selectStock.id">
+                <div class="card pb-0">
+                    <div class="order-title-empty">Selecione uma Ação</div>
+                    <div>
+                        <span><i class="material-icons card-icon-empty">trending_up</i></span>
                     </div>
+                </div>
+            </div>
 
-                    <div class="text-center pt-10" *ngIf="selectStock.id > 0">
-                        <div class="card">
-                            <div class="order-title">
-                                AÇÃO - {{selectStock.symbol}}
-                            </div>
-                            <div class="group">
-                                <input type="number" [(ngModel)]="order.amount">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Quantidade</label>
-                            </div>
-                            <div>
-                                <button type="button" class="cursor-click" (click)="executeOrder(order)">COMPRAR</button>
-                            </div>
-                        </div>
+            <div class="order-content" *ngIf="selectStock.id > 0">
+                <div class="order-content-col">
+                    <div>
+                        <div class="inline-block">Ação: </div>
+                        <div class="inline-block stock-color">{{selectStock.symbol}}</div>
+                    </div>
+                    <div class="mt-15">
+                        <div class="inline-block">Preço: </div>
+                        <div class="inline-block stock-color">{{selectStock.currentPrice | currency}}</div>
+                    </div>
+                </div>
+
+                <div class="order-content-col">
+                    <div style="display: flex;">
+                        <span class="inline-block">Quantidade: </span>
+                        <input class="pt-10" type="number" [(ngModel)]="order.amount">
+                    </div>
+                    <div class="mt-15">
+                        <button type="button" class="cursor-click" (click)="executeOrder(order)">COMPRAR</button>
                     </div>
                 </div>
             </div>
