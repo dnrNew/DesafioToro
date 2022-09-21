@@ -6,18 +6,14 @@
 
 Projeto criado para desenvolver a User Story `TORO-004` do Desafio Toro Desenvolvedor Full-Stack.
 
-O projeto simula uma lista de usuários em que cada usuário pode ter uma lista de ativos na bolsa de valores. Um usuário pode visualizar sua lista de ativos e executar uma ordem para comprar uma quantidade de ações, de acordo com uma lista aletória de 5 ações mais negociadas no dia. Após a compra das ações o saldo e a lista de ativos do usuário é atualizado.
+O projeto simula uma lista de usuários em que cada usuário pode ter uma lista de ativos na bolsa de valores. Um usuário pode visualizar sua lista de ativos e executar uma ordem para comprar uma quantidade de ações, de acordo com uma lista aleatória de 5 ações mais negociadas no dia. Após a compra das ações o saldo e a lista de ativos do usuário é atualizado.
+
+A arquitetura do Projeto foi baseada em camadas com o Domínio, regras de negócio desacoplados e API RESTFull.
 
 # Índice
-* [Desafio Toro Full-Stack](#desafio-toro-full-stack)
-* [Índice](#índice)
 * [Começando](#-começando)
-* [Como executar o Projeto](#-como-executar-o-projeto)
-* [Executando os testes](#-executando-os-testes)
-* [Pessoas Contribuidoras](#pessoas-contribuidoras)
-* [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
-* [Licença](#licença)
-* [Conclusão](#conclusão)
+* [Como executar o Projeto](#%EF%B8%8F-como-executar-o-projeto)
+* [Executando os testes](#%EF%B8%8F-executando-os-testes)
 
 ## 🚀 Começando
 
@@ -39,7 +35,7 @@ Abrir um terminal e digitar os seguinte comandos:
 npm install -g @angular/cli  
 ```
 
-### 🔧 Como executar o Projeto
+### 🛠️ Como executar o Projeto
 
 Para inicializar todos os serviços de uma vez basta utilizar o docker-compose com o comando:
 
@@ -62,35 +58,8 @@ dotnet run
 
 ## ⚙️ Executando os testes
 
+Foram criados testes de unidade no projeto de Backend que podem ser executados de dentro da pasta **backend**, com o comando:
+
 ```
 dotnet test 
 ```
-
-### 🔩 Analise os testes de ponta a ponta
-
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
-
-### ⌨️ E testes de estilo de codificação
-
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
-
-## 📦 Implantação
-
-Adicione notas adicionais sobre como implantar isso em um sistema ativo
-
-## 🛠️ Construído com
-
-Mencione as ferramentas que você usou para criar seu projeto
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - O framework web usado
-* [Maven](https://maven.apache.org/) - Gerente de Dependência
-* [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
-
