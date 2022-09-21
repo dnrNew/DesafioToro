@@ -8,18 +8,35 @@ Projeto criado para desenvolver a User Story `TORO-004` do Desafio Toro Desenvol
 
 O projeto simula uma lista de usuários em que cada usuário pode ter uma lista de ativos na bolsa de valores. Um usuário pode visualizar sua lista de ativos e executar uma ordem para comprar uma quantidade de ações, de acordo com uma lista aletória de 5 ações mais negociadas no dia. Após a compra das ações o saldo e a lista de ativos do usuário é atualizado.
 
+# Índice
+* [Desafio Toro Full-Stack](#desafio-toro-full-stack)
+* [Índice](#índice)
+* [Começando](#-começando)
+* [Acesso ao Projeto](#acesso-ao-projeto)
+* [Tecnologias utilizadas](#tecnologias-utilizadas)
+* [Pessoas Contribuidoras](#pessoas-contribuidoras)
+* [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
+* [Licença](#licença)
+* [Conclusão](#conclusão)
+
 ## 🚀 Começando
 
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
+Clonar o repositório do Projeto 
+```
+git clone https://github.com/dnrNew/DesafioToro.git
+```
+Instalar as dependências do Projeto:
 
-Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
+- .NET Core 6 - https://dotnet.microsoft.com/en-us/download/dotnet/6.0
+- Node.js versão v16.17.0 - https://nodejs.org/en/download/
+- Docker versão 20.10.17 - https://docs.docker.com/desktop/install/windows-install/
 
-### 📋 Pré-requisitos
+Abrir um terminal e digitar os seguinte comandos:
 
-De que coisas você precisa para instalar o software e como instalá-lo?
+- Instalar o Angular
 
 ```
-Dar exemplos
+npm install -g @angular/cli  
 ```
 
 ### 🔧 Instalação
