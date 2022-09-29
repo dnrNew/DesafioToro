@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\src\DesafioToro.Application\DesafioToro.Application.csproj" />
     <ProjectReference Include="..\src\DesafioToro.Domain\DesafioToro.Domain.csproj" />
   </ItemGroup>
 
